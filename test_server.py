@@ -4,8 +4,9 @@ from threading import Thread
 def forward(conn):
     while True:
             data=conn.recv(1024)
-            conn.send(data)
             print(data.decode('utf8'))
+            data=input('server:').encode('utf8')
+            conn.send(data)
             if (data.decode('utf8'))=='bye':
                 conn.close()
                 break
